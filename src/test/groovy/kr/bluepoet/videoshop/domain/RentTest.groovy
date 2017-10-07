@@ -11,12 +11,11 @@ import static kr.bluepoet.videoshop.util.TestUtils.*
  */
 class RentTest extends Specification {
     Rent rent
-    RentRepository mockRentRepository
+    RentRepository mockRentRepository = Mock()
     RentService rentService = Spy()
 
     void setup() {
         rent = new Rent()
-        mockRentRepository = Mock()
         rentService.setRentRepository(mockRentRepository)
     }
 

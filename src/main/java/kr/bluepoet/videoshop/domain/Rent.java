@@ -24,6 +24,16 @@ public class Rent {
     private List<DiscountRule> discountRules;
     private LocalDateTime rentDate;
 
+    public Rent() {
+    }
+
+    public Rent(Long id, List<Video> videos, Renter renter, LocalDateTime rentDate) {
+        this.id = id;
+        this.videos = videos;
+        this.renter = renter;
+        this.rentDate = rentDate;
+    }
+
     public void setDiscountRules(List<DiscountRule> discountRules) {
         this.discountRules = discountRules;
     }

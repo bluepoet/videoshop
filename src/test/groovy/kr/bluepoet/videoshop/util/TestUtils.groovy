@@ -8,9 +8,9 @@ import kr.bluepoet.videoshop.domain.Video
  * Created by bluepoet on 2017. 10. 7..
  */
 class TestUtils {
-    static def NORMAL_RENTER = new Renter("tester", RenterGrade.NORMAL)
-    static def SILVER_RENTER = new Renter("renter", RenterGrade.SILVER)
-    static def GOLD_RENTER = new Renter("bluepoet", RenterGrade.GOLD)
+    static def NORMAL_RENTER = new Renter("tester", RenterGrade.NORMAL, '2017-10-06 00:00:00')
+    static def SILVER_RENTER = new Renter("renter", RenterGrade.SILVER, '2014-10-06 00:00:00')
+    static def GOLD_RENTER = new Renter("bluepoet", RenterGrade.GOLD, '2012-10-06 00:00:00')
 
     static def NO_EVENT_TIME = '2017-10-11 10:30:33'
     static def MONDAY_EVENT_TIME = '2017-10-09 10:30:33'
