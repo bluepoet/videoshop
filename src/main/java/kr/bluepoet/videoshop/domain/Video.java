@@ -30,4 +30,8 @@ public class Video {
     public int getPrice() {
         return price;
     }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
 }

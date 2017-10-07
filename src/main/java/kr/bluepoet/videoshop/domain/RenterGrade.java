@@ -3,14 +3,14 @@ package kr.bluepoet.videoshop.domain;
 /**
  * Created by bluepoet on 2017. 10. 6..
  */
-public enum MemberGrade {
+public enum RenterGrade {
     NORMAL(0.0F),
     SILVER(0.05F),
     GOLD(0.1F);
 
     private float discountRate;
 
-    MemberGrade(float discountRate) {
+    RenterGrade(float discountRate) {
         this.discountRate = discountRate;
     }
 

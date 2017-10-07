@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Rent {
     private List<Video> videos;
-    private Member renter;
+    private Renter renter;
     private List<DiscountRule> discountRules;
 
     public void setDiscountRules(List<DiscountRule> discountRules) {
@@ -25,20 +25,23 @@ public class Rent {
             totalPrice += video.getPrice();
         }
 
-        return applyDiscountRule(totalPrice);
-    }
-
-    private int applyDiscountRule(int totalPrice) {
         if (discountRules != null && discountRules.size() != 0) {
-            for (DiscountRule discountRule : discountRules) {
-                return discountRule.discount(totalPrice);
-            }
+            return applyDiscountRule(totalPrice);
         }
 
         return totalPrice;
     }
 
-    public void addRenter(Member p) {
+    private int applyDiscountRule(int totalPrice) {
+        int discountPrice = 0;
+        for (DiscountRule discountRule : discountRules) {
+            discountPrice += discountRule.discount();
+        }
+
+        return totalPrice - discountPrice;
+    }
+
+    public void addRenter(Renter p) {
         this.renter = renter;
     }
 }

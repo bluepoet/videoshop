@@ -4,18 +4,20 @@ package kr.bluepoet.videoshop.domain;
  * Created by bluepoet on 2017. 10. 6..
  */
 public class MemberDiscountRule implements DiscountRule {
-    private MemberGrade memberGrade;
+    private RenterGrade memberGrade;
+    private int totalPrice;
 
-    public MemberDiscountRule(MemberGrade memberGrade) {
+    public MemberDiscountRule(RenterGrade memberGrade, int totalPrice) {
         this.memberGrade = memberGrade;
+        this.totalPrice = totalPrice;
     }
 
     @Override
-    public int discount(int totalPrice) {
+    public int discount() {
         if (memberGrade.isDiscountMember()) {
-            return (int) (totalPrice - (totalPrice * memberGrade.getDiscountRate()));
+            return (int) (totalPrice * memberGrade.getDiscountRate());
         }
 
-        return totalPrice;
+        return 0;
     }
 }
