@@ -12,4 +12,8 @@ public class DateUtils {
     public static LocalDateTime parse(String releaseDate) {
         return LocalDateTime.parse(releaseDate, formatter);
     }
+
+    public static LocalDateTime getNowTime() {
+        return LocalDateTime.now();
+    }
 }
