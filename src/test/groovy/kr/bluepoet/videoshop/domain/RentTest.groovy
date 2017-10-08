@@ -19,7 +19,7 @@ class RentTest extends Specification {
         rentService.setRentRepository(mockRentRepository)
     }
 
-    def "대여자 등급별 비디오 3개의 총 대여가격을 계산한다"() {
+    def "대여자 등급별 비디오 3개의 총 대여가격을 계산한다."() {
         given:
         givenMemberDiscountRule(createVideos(), renter, NO_EVENT_TIME)
 
@@ -33,7 +33,7 @@ class RentTest extends Specification {
         GOLD_RENTER   || 5400
     }
 
-    def "시간할인이 적용되는 월요일과 주말 시간대 비디오 3개의 총 대여가격을 계산한다"() {
+    def "시간할인이 적용되는 월요일과 주말 시간대 비디오 3개의 총 대여가격을 계산한다."() {
         given:
         givenMemberDiscountRule(createVideos(), NORMAL_RENTER, eventTime)
 
@@ -47,7 +47,7 @@ class RentTest extends Specification {
         WEEKEND_EVENT_TIME || 5700
     }
 
-    def "출시일할인이 적용되는 비디오의 총 대여가격을 계산한다"() {
+    def "출시일할인이 적용되는 비디오의 총 대여가격을 계산한다."() {
         given:
         givenMemberDiscountRule(videos, NORMAL_RENTER, NO_EVENT_TIME)
 
@@ -63,7 +63,7 @@ class RentTest extends Specification {
         Arrays.asList(new Video('toy story', 10000, '2016-10-06 00:00:00'), new Video('betman', 3000, '1986-10-06 00:00:00')) || 12460
     }
 
-    def "대여자등급과 시간할인이 중복되었을 때, 비디오 3개의 총 대여가격을 계산한다"() {
+    def "대여자등급(GOLD)과 시간할인이 중복되었을 때, 비디오 3개의 총 대여가격을 계산한다."() {
         given:
         givenMemberDiscountRule(createVideos(), GOLD_RENTER, WEEKEND_EVENT_TIME)
 
@@ -74,7 +74,7 @@ class RentTest extends Specification {
         totalPrice == 5100
     }
 
-    def "반납일에 따라 연체료를 계산한다"() {
+    def "반납일에 따라 연체료를 계산한다."() {
         given:
         def rentId = 1L
         mockRentRepository.findById(rentId) >> givenRentById()
@@ -103,7 +103,8 @@ class RentTest extends Specification {
         rent.addVideo(videos)
         rent.addRenter(renter)
         def totalPrice = getTotalPrice(videos)
-        rent.setDiscountRules(Arrays.asList(new MemberDiscountRule(renter.grade, totalPrice), new TimeDiscountRule(nowTime, totalPrice)
+        rent.setDiscountRules(Arrays.asList(new MemberDiscountRule(renter.grade, totalPrice)
+                , new TimeDiscountRule(nowTime, totalPrice)
                 , new ReleaseDateDiscountRule(videos)))
     }
 

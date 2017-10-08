@@ -1,5 +1,7 @@
 package kr.bluepoet.videoshop.domain;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -49,7 +51,7 @@ public class Rent {
             totalPrice += video.getPrice();
         }
 
-        if (discountRules != null && discountRules.size() != 0) {
+        if (CollectionUtils.isNotEmpty(discountRules)) {
             return applyDiscountRule(totalPrice);
         }
 

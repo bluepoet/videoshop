@@ -27,29 +27,41 @@ public class RenterService {
 
     public boolean isUpgradeSilver(Renter renter) {
         List<Rent> rents = rentRepository.findByRenter(renter.getName());
-        if (rents.size() >= 10 && renter.isPastThreeYearsFromJoinDate(currentTime())) {
+        if (isSilverGradeCondition(renter, rents)) {
             return true;
         }
         return false;
+    }
+
+    private boolean isSilverGradeCondition(Renter renter, List<Rent> rents) {
+        return rents.size() >= 10 && renter.isPastThreeYearsFromJoinDate(currentTime());
     }
 
     public boolean isUpgradeGold(Renter renter) {
         List<Rent> rents = rentRepository.findByRenter(renter.getName());
-        if (rents.size() >= 20 && renter.isPastFiveYearsFromJoinDate(currentTime())) {
+        if (isGoldGradeCondition(renter, rents)) {
             return true;
         }
 
         return false;
     }
 
+    private boolean isGoldGradeCondition(Renter renter, List<Rent> rents) {
+        return rents.size() >= 20 && renter.isPastFiveYearsFromJoinDate(currentTime());
+    }
+
     public boolean isWithdrawCondition(Renter renter) {
         List<Rent> rents = rentRepository.findByRenter(renter.getName());
-        if (CollectionUtils.isEmpty(rents) && renter.isPastTwoYearsFromJoinDate(currentTime())) {
+        if (matchWithdrawCondition(renter, rents)) {
             renterRepository.delete(renter.getName());
             return true;
         }
 
         return false;
+    }
+
+    private boolean matchWithdrawCondition(Renter renter, List<Rent> rents) {
+        return CollectionUtils.isEmpty(rents) && renter.isPastTwoYearsFromJoinDate(currentTime());
     }
 
     public LocalDateTime currentTime() {
