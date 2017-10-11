@@ -16,13 +16,21 @@
 * 반납일로부터 하루가 지나면 총 비디오가격의 5%, 일주일 이상 지나면 10%, 한달 이상 지나면 30%의 연체료를 물린다
 </pre>
 
-3.__비디오가게 주인은 손님들의 등급을 자동으로 업데이트 하고 싶다__
+3.__비디오가게 주인은 손님들의 등급을 자동으로 업데이트 하고 싶다.__
 <pre>
 * 회원은 첫 가입 후, 3년이 지나거나 혹은 10번 이상 대여한 내역이 있다면, 실버등급으로 올라간다.
 * 회원은 첫 가입 후, 5년이 지나거나 혹은 20번 이상 대여한 내역이 있다면, 골드등급으로 올라간다.
 * 회원은 첫 가입 후 2년이상 지나도록 대여내역이 없다면, 자동탈퇴된다.
 </pre>
 
+4.__비디오가게 주인은 상시로 신규로 나온 비디오를 확인하고 싶다.__
+<pre>
+* 신규 비디오 정보는 비디오 퍼블리셔(publisher)가 제공하기로 했다.
+* 비디오 퍼블리셔는 아직 제공할 신규비디오 정보에 대한 구현을 하지 못했다.
+* 대신 아래와 같은 인터페이스 명세를 정의했다.
+  요청시 옵션 파라미터로 기간을 줘서 해당 기간 이후의 신규비디오 리스트를 가져올 수 있고, 형식은 yyyyMM(ex: 201709)이다.
+* 신규비디오 리스트 요청은 관리자 아이디만 할 수 있다.
+</pre>
 ### Spock Documentation
 
 http://spockframework.org/spock/docs/1.1/index.html
@@ -32,3 +40,4 @@ http://spockframework.org/spock/docs/1.1/index.html
 1. 숫자야구게임 : https://github.com/bluepoet/baseballgame-tdd-exercise
 2. 초간단 spock-dbunit CRUD : https://github.com/bluepoet/spock-dbunit-exercise
 3. ddd-start 테스트코드 groovy+spock으로 포팅 : https://github.com/bluepoet/ddd-repeat-start
+4. 영화예매시스템 junit/spock 테스트코드 비교 : https://github.com/bluepoet/MovieReservationSystem
