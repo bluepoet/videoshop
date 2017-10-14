@@ -1,6 +1,5 @@
 package kr.bluepoet.videoshop.domain
 
-import kr.bluepoet.videoshop.application.RentService
 import spock.lang.Specification
 
 import static kr.bluepoet.videoshop.util.TestUtils.*
@@ -9,15 +8,10 @@ import static kr.bluepoet.videoshop.util.TestUtils.*
  * Created by bluepoet on 2017. 10. 7..
  */
 class RentTest extends Specification {
-    Rent rent
-    RentRepository mockRentRepository = Mock()
-
-    void setup() {
-        rent = new Rent()
-    }
+    def rent = new Rent()
 
     def "대여자 등급별 비디오 3개의 총 대여가격을 계산한다."() {
-        given:
+        setup:
         givenMemberDiscountRule(createVideos(), renter, NO_EVENT_TIME)
 
         expect:
