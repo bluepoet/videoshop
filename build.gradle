@@ -30,8 +30,6 @@ dependencies {
 
     testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
-    testCompile("org.junit.platform:junit-platform-runner:1.0.1")
-    testCompile("junit:junit:4.12")
 
     // https://mvnrepository.com/artifact/cglib/cglib-nodep
     testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.5'
