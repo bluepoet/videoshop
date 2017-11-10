@@ -23,4 +23,7 @@ public class TestDatas {
         return Arrays.asList(video1, video2, video3);
     }
 
+    public static int getTotalPrice() {
+        return createVideos().stream().mapToInt(v -> v.getPrice()).sum();
+    }
 }

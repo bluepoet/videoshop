@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class VideoTest {
     @Test
     void invalidCreatedVideo() {
+
         assertInvalidVideo(() -> new Video("terminator", -1000, "2017-10-06 00:00:00"));
         assertInvalidVideo(() -> new Video("", 1000, "2017-10-06 00:00:00"));
         assertInvalidVideo(() -> new Video("alien", 10000, ""));
