@@ -28,12 +28,18 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
 
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.2")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.2")
 
     // https://mvnrepository.com/artifact/cglib/cglib-nodep
     testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.5'
 
     // https://mvnrepository.com/artifact/org.spockframework/spock-core
     testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+
+    // https://mvnrepository.com/artifact/name.falgout.jeffrey.testing.junit5/mockito-extension
+    compile group: 'name.falgout.jeffrey.testing.junit5', name: 'mockito-extension', version: '1.0.0'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.0.2'
 }

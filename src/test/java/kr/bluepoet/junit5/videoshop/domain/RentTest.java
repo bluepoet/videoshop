@@ -64,34 +64,37 @@ public class RentTest {
         @Test
         void calculatePriceByReleaseDate() {
             // Given
-            List<Video> videos = Arrays.asList(new Video("alien2", 10000, "2016-10-06 00:00:00"));
-            rent.setDiscountRules(Arrays.asList(new ReleaseDateDiscountRule(videos)));
-            rent.addVideo(videos);
+            givenReleaseDiscountRule(Arrays.asList(new Video("alien2", 10000, "2016-10-06 00:00:00")));
 
             // When
             // Then
             assertEquals(9700, rent.calculateRentPrice());
 
             // Given
-            rent.addVideo(Arrays.asList(new Video("terminator", 5000, "2014-10-06 00:00:00")));
+            givenReleaseDiscountRule(Arrays.asList(new Video("terminator", 5000, "2014-10-06 00:00:00")));
 
             // When
             // Then
             assertEquals(4750, rent.calculateRentPrice());
 
             // Given
-            rent.addVideo(Arrays.asList(new Video("predator", 3000, "1986-10-06 00:00:00")));
+            givenReleaseDiscountRule(Arrays.asList(new Video("predator", 3000, "1986-10-06 00:00:00")));
 
             // When
             // Then
             assertEquals(2760, rent.calculateRentPrice());
 
             // Given
-            rent.addVideo(Arrays.asList(new Video("toy story", 10000, "2016-10-06 00:00:00"), new Video("betman", 3000, "1986-10-06 00:00:00")));
+            givenReleaseDiscountRule(Arrays.asList(new Video("toy story", 10000, "2016-10-06 00:00:00"), new Video("betman", 3000, "1986-10-06 00:00:00")));
 
             // When
             // Then
             assertEquals(12460, rent.calculateRentPrice());
+        }
+
+        private void givenReleaseDiscountRule(List<Video> videos) {
+            rent.setDiscountRules(Arrays.asList(new ReleaseDateDiscountRule(videos)));
+            rent.addVideo(videos);
         }
     }
 }
